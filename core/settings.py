@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -28,7 +27,6 @@ DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
 CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split(' ')
-
 
 SECURE_SSL_REDIRECT = \
     os.getenv('SECURE_SSL_REDIRECT', '0').lower() in ['true', 't', '1']
@@ -47,7 +45,12 @@ INSTALLED_APPS = [
     'images.apps.ImagesConfig',
     'django_tables2',
     'crispy_forms',
+    "crispy_bootstrap4",
+
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,7 +82,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
@@ -89,7 +91,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -109,7 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -121,17 +121,13 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Tables
 # https://django-tables2.readthedocs.io/en/latest/index.html
 
 DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap4.html'
 
-
 # Forms
 # https://django-crispy-forms.readthedocs.io/en/latest/index.html
-
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -143,12 +139,10 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 DEFAULT_FILE_STORAGE = 'core.azure_storage.AzureMediaStorage'
 STATICFILES_STORAGE = 'core.azure_storage.AzureStaticStorage'
