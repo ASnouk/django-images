@@ -1,7 +1,7 @@
-﻿Django==4.1.1
-Pillow==9.2.0
-django-tables2==2.4.1
-django-crispy-forms==1.14.0
-django-storages==1.13.2
-azure-core==1.26.3
-azure-storage-blob==12.14.1
+﻿Django==4.2.7
+Pillow==10.1.0
+django-tables2==2.6.0
+django-crispy-forms==2.1
+django-storages==1.14.2
+azure-core==1.29.5
+azure-storage-blob==12.19.0
